@@ -32,7 +32,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 from sklearn import linear_model
 lr = linear_model.LinearRegression()
 model = lr.fit(X_train, y_train)
-##Evaluate the performance and visualize results
+# Evaluate the performance and visualize results
 print ("R^2 is: \n", model.score(X_test, y_test))
 predictions = model.predict(X_test)
 from sklearn.metrics import mean_squared_error
