@@ -25,41 +25,41 @@ print("\n Word tokenize")
 w_tokens = nltk.word_tokenize(txt)
 print(w_tokens[:50])
 
-# nltk.download('averaged_perceptron_tagger')
-# print("\n Parts of speech")
-# pos = nltk.pos_tag(w_tokens)
-# print(pos)
-#
-# from nltk.stem import PorterStemmer
-# from nltk.stem import LancasterStemmer
-# from nltk.stem import SnowballStemmer
-#
-# pStemmer = PorterStemmer()
-# lStemmer = LancasterStemmer()
-# sStemmer = SnowballStemmer('english')
-#
-# print("Stemming")
-# for w in w_tokens[:50]:
-#     print(pStemmer.stem(w),
-#           lStemmer.stem(w),
-#           sStemmer.stem(w))
-#
-# print("Lemmatization")
-# from nltk.stem import WordNetLemmatizer
-# lemmatizer = WordNetLemmatizer()
-# print("\nLEMMATIZATION\n")
-# for t in w_tokens[:50]:
-#     print("Lemmatizer:", lemmatizer.lemmatize(t), ",    With POS=n:", lemmatizer.lemmatize(t, pos="n"))
-#
+nltk.download('averaged_perceptron_tagger')
+print("\n Parts of speech")
+pos = nltk.pos_tag(w_tokens)
+print(pos)
 
-# print("\n Trigram \n")
-# from nltk.util import ngrams
-# token = nltk.word_tokenize(txt)
-# for s in s_tokens[:50]:
-#      token = nltk.word_tokenize(s)
-#      bigrams = list(ngrams(token, 2))
-#      trigrams = list(ngrams(token, 3))
-#      print("The text:", s, "\nword_tokenize:", token, "\nbigrams:", bigrams, "\ntrigrams", trigrams)
+from nltk.stem import PorterStemmer
+from nltk.stem import LancasterStemmer
+from nltk.stem import SnowballStemmer
+
+pStemmer = PorterStemmer()
+lStemmer = LancasterStemmer()
+sStemmer = SnowballStemmer('english')
+
+print("Stemming")
+for w in w_tokens[:50]:
+    print(pStemmer.stem(w),
+          lStemmer.stem(w),
+          sStemmer.stem(w))
+
+print("Lemmatization")
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+print("\nLEMMATIZATION\n")
+for t in w_tokens[:50]:
+    print("Lemmatizer:", lemmatizer.lemmatize(t), ",    With POS=n:", lemmatizer.lemmatize(t, pos="n"))
+
+
+print("\n Trigram \n")
+from nltk.util import ngrams
+token = nltk.word_tokenize(txt)
+for s in s_tokens[:50]:
+     token = nltk.word_tokenize(s)
+     bigrams = list(ngrams(token, 2))
+     trigrams = list(ngrams(token, 3))
+     print("The text:", s, "\nword_tokenize:", token, "\nbigrams:", bigrams, "\ntrigrams", trigrams)
 
 print("\n Named Entity Recognition \n")
 
