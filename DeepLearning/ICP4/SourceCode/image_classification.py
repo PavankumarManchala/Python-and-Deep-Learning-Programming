@@ -84,9 +84,23 @@ print("Test Accuracy: %.2f%%" % (scores[1]*100))
 print('Test  Loss:', scores[0])
 model.save('./model' + '.h5')
 
-# display image in the test data
-predict_test = model.predict_classes(X_train[[0],:])
-print("The prediction of the image in the train data set is: ", predict_test)
-plt.imshow(X_train[[0],:],)
-plt.title('Ground Truth  %s and predicted %s' %(X_train[[0],:],predict_test))
-plt.show()
+# # display image in the test data
+# predict_test = model.predict_classes(X_train[[0]])
+# print("The prediction of the image in the train data set is: ", predict_test)
+# plt.imshow(X_train[[0],:],)
+# plt.title('Ground Truth  %s and predicted %s' %(X_train[[0],:],predict_test))
+# plt.show()
+
+import pandas as pd
+prediction = pd.DataFrame()
+imageid = []
+for i in range(len(X_test[0:4])):
+    i = i + 1
+    imageid.append(i)
+prediction["ImageId"] = imageid
+prediction["Label"] = model.predict_classes(X_test[0:4], verbose=0)
+print(prediction.head())
+
+import numpy as np
+a  = np.array(y_test[0:4])
+print('Actual labels for first four images: {0}'.format(np.argmax(a, axis=1)))
